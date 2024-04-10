@@ -1,0 +1,26 @@
+
+Erklärung der Berechnungen im Code:
+1. Berechnen der Distanz:
+
+Die Funktion getDistance berechnet die Distanz zwischen zwei Punkten auf der Erde mithilfe der Formel für die Entfernung auf einer Kugel. Die Formel verwendet die Breiten- und Längengrade der beiden Punkte sowie den Erdradius (R = 6371 km).
+
+2. Berechnen der durchschnittlichen Bewegungsrichtung:
+
+Die Funktion getAverageDirection berechnet die durchschnittliche Bewegungsrichtung aller Container in der Gruppe. Dazu wird zunächst die Distanz und Richtung zwischen den letzten beiden GPS-Datensätzen jedes Containers berechnet. Die Richtung wird als Winkel im Bogenmaß zwischen 0 und 2π berechnet.
+
+Danach wird die durchschnittliche Richtung durch Summierung der Richtungen aller Container und Division durch die Anzahl der Container berechnet.
+
+3. Überprüfen, ob sich ein Container von der Gruppe entfernt:
+
+Die Funktion checkForDeviation vergleicht die Bewegungsrichtung eines Containers mit der durchschnittlichen Bewegungsrichtung der Gruppe. Dazu wird die Differenz zwischen den beiden Richtungen berechnet.
+
+Abweichung = Richtung des Containers - Durchschnittliche Richtung
+
+Wenn die absolute Abweichung größer als die definierte Schwelle (deviationThreshold) ist, wird der Container als abweichend ausgegeben.
+
+4. Weitere Berechnungen:
+
+Der Code kann um weitere Berechnungen erweitert werden, z. B.:
+
+Geschwindigkeit: Die Geschwindigkeit jedes Containers kann berechnet werden, indem die Distanz zwischen den letzten beiden GPS-Datensätzen durch die Zeitdifferenz dividiert wird.
+Beschleunigung: Die Beschleunigung jedes Containers kann berechnet werden, indem die Geschwindigkeitsänderung zwischen den letzten beiden GPS-Datensätzen durch die Zeitdifferenz dividiert wird.
